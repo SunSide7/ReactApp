@@ -3,14 +3,19 @@ import './Field.sass'
 
 export default class Field extends Component {
 
+    classNames = {
+        contentClassNames: ['text-field__content'],
+        inputClassNames: ['text-field__input']
+    }
+
     content = React.createRef()
     input = React.createRef()
     
     render() {
         return(
             <div className="text-field">
-                <div ref={this.content} className="text-field__content">Type any text here</div>
-                <input ref={this.input} type="text" className="text-field__input"/>
+                <div ref={this.content} className={this.classNames.contentClassNames.join(' ')}>Type any text here</div>
+                <input ref={this.input} type="text" className={this.classNames.inputClassNames.join(' ')}/>
             </div>
         )
     }
