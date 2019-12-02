@@ -4,8 +4,8 @@ import './Field.sass'
 export default class Field extends Component {
 
     classNames = {
-        contentClassNames: ['text-field__content'],
-        inputClassNames: ['text-field__input']
+        contentClassNames: ['text-field__content', 'active'],
+        inputClassNames: ['text-field__input', 'hide']
     }
 
     content = React.createRef()
