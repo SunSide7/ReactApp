@@ -10,6 +10,10 @@ export default class Field extends Component {
 
     content = React.createRef()
     input = React.createRef()
+
+    state = {
+        typing: false
+    }
     
     render() {
         return(
