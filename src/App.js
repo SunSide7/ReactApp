@@ -4,7 +4,7 @@ import Field from './components/Field/Field'
 function App() {
   return (
     <div className="App">
-      <Field />>
+      <Field />
     </div>
   );
 }
