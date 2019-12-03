@@ -13,7 +13,13 @@ export default class Input extends Component {
 
     render() {
         return(
-            <input ref={this.inputRef} onKeyPress={event => {this.props.onToggle(event)}} type="text" className="text-field_input"/>
+            <input 
+                ref={this.inputRef} 
+                onKeyPress={event => {this.props.onToggle(event)}}
+                onChange={event => {this.props.onChange(this.inputRef.current.value)}}
+                type="text" 
+                className="text-field_input"
+            />
         )
     }
 }

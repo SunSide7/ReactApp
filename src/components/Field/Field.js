@@ -25,6 +25,10 @@ export default class Field extends Component {
             return this.state.value
         }
     }
+
+    onChangeValue = value => {
+        this.setState({ value: value })
+    }
     
     render() {
         return(
@@ -37,7 +41,10 @@ export default class Field extends Component {
                 
                 {
                     !this.state.typing && 
-                        <Input onToggle={event => {this.onCloseTyping(event)}} value={this.state.value} />
+                        <Input 
+                        onToggle={event => {this.onCloseTyping(event)}} 
+                        value={this.state.value}
+                        onChange={this.onChangeValue} />
                 }
             </div>
         )
