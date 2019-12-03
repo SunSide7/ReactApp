@@ -18,7 +18,7 @@ export default class Input extends Component {
                 onKeyPress={event => {this.props.onToggle(event)}}
                 onChange={event => {this.props.onChange(this.inputRef.current.value)}}
                 type="text" 
-                className="text-field_input"
+                className="text-field__input"
             />
         )
     }

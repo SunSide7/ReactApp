@@ -36,7 +36,7 @@ export default class Field extends Component {
                 
                 {
                     this.state.typing && 
-                        <div ref={this.contentRef} onClick={() => this.onTyping()} className="text-field_content"> {this.state.value} </div>
+                        <div ref={this.contentRef} onClick={() => this.onTyping()} className="text-field__content"> {this.state.value} </div>
                 }
                 
                 {
