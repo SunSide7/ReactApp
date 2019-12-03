@@ -1,79 +1,44 @@
 import React, { Component } from 'react'
+import Input from './Input'
 import './Field.sass'
 
 export default class Field extends Component {
 
-    
-
     contentRef = React.createRef()
-    inputRef = React.createRef()
 
     state = {
         typing: true,
-        classNames: {
-            contentClassNames: ['text-field__content', 'active'],
-            inputClassNames: ['text-field__input', 'hide']
-        }
+        value: 'Type any text here'
     }
-
-    componentDidUpdate() {
-        if (this.state.typing) {
-            console.log('ComponentDidUpdate')
-            
-        }
-    }
-
-    
-    shouldComponentUpdate() {
-        if (this.state.typing) {
-            console.log('shouldComponentUpdate')
-            
-        }
-
-        return true
-    }
-
-    
     
     onTyping() {
-        
-        this.inputRef.current.focus()
         this.setState({ typing: !this.state.typing });
-        
-        if (this.state.typing) {
-            
-            this.setState({ classNames: {
-                contentClassNames: ['text-field__content', 'hide'],
-                inputClassNames: ['text-field__input', 'active']
-            } })
-            
-            // console.log()
-            this.inputRef.current.value = 'new value'
-            console.log(this.inputRef.current)
-            console.log(this.state.typing)
-            
-        } else {
 
-            this.setState({ classNames: {
-                contentClassNames: ['text-field__content', 'active'],
-                inputClassNames: ['text-field__input', 'hide']
-            } })
-
-        }
-        
+        this.state.typeing && this.setState({ value: this.contentRef.current.textContent })
     }
 
     onCloseTyping(event) {
         if (event.key === 'Enter') {
             this.onTyping()
+            console.log(this.state.value)
+
+            return this.state.value
         }
     }
     
     render() {
         return(
             <div className="text-field">
-                <div ref={this.contentRef} onClick={() => this.onTyping()} className={this.state.classNames.contentClassNames.join(' ')}>Type any text here</div>
-                <input ref={this.inputRef} onKeyPress={event => this.onCloseTyping(event)} type="text" className={this.state.classNames.inputClassNames.join(' ')}/>
+                
+                {
+                    this.state.typing && 
+                        <div ref={this.contentRef} onClick={() => this.onTyping()} className="text-field_content"> {this.state.value} </div>
+                }
+                
+                {
+                    !this.state.typing && 
+                        <Input onToggle={event => {this.onCloseTyping(event)}} value={this.state.value} />
+                }
             </div>
         )
     }
