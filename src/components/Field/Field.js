@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import ReactDOM from 'react-dom'
 import Input from './Input'
 import './Field.sass'
 
@@ -10,26 +9,6 @@ export default class Field extends Component {
     state = {
         typing: false,
         value: 'Type any text here'
-    }
-
-    constructor() {
-        super()
-        this.handleClickOutside = this.handleClickOutside.bind(this)
-
-    }
-
-
-    componentWillMount() {
-        document.addEventListener('click', this.handleClickOutside, false)
-    }
-
-    handleClickOutside(event) {
-        const domNode = ReactDOM.findDOMNode(this)
-
-        if (!domNode || !domNode.contains(event.target)) {
-            console.log('Clicked outside!')
-            this.setState({ typing: !this.state.typing })
-        }
     }
     
     onTyping() {
