@@ -1,27 +1,13 @@
 import React from 'react';
 import Field from './components/Field/Field'
-import TableRow from './components/TableRow/TableRow'
+import Table from './components/Table/Table'
 
 function App() {
   return (
     <div className="App">
-    	<table>
-    		<tbody>
-    			<TableRow />
-    			<TableRow />
-    			<TableRow />
-    			<TableRow />
-    			<TableRow />
-    		</tbody>
-    	</table>
 
-    	{/*
-      	<Field />
-      	<Field />
-      	<Field />
-      	<Field />
-      	<Field />
-    	*/}
+      <Table />
+
     </div>
   );
 }
