@@ -1,9 +1,12 @@
 import React, { Component } from 'react'
 import TableRow from '../TableRow/TableRow'
 
-export default class Table extends Component {
+import { connect } from 'react-redux'
+
+class Table extends Component {
 
 	render() {
+		console.log('Table:', this.props)
 		return (
 			<table>
     		<tbody>
@@ -18,3 +21,12 @@ export default class Table extends Component {
 	}
 
 }
+
+function mapStateToProps(state) {
+	return {
+		userInfo: state.userInfo,
+		counter: state.counter
+	}
+}
+
+export default connect(mapStateToProps)(Table)
