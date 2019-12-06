@@ -8,10 +8,10 @@ export default class TableRow extends Component {
 		return (
 			<tr>
 				<td>
-					<Field />
+					<Field value={this.props.name} />
 				</td>
 				<td>
-					<Field />
+					<Field value={this.props.age} />
 				</td>
 				<td>
 					<Field />

@@ -6,15 +6,21 @@ import { connect } from 'react-redux'
 class Table extends Component {
 
 	render() {
+		const { userInfo } = this.props
+
 		console.log('Table:', this.props)
 		return (
 			<table>
     		<tbody>
-    			<TableRow />
-    			<TableRow />
-    			<TableRow />
-    			<TableRow />
-    			<TableRow />
+				{userInfo.map((user, index) => {
+					return (
+						<TableRow
+							key={index}
+							name={user.name}
+							age={user.age}
+						/>
+					)
+				}) }
     		</tbody>
     	</table>
 		)
