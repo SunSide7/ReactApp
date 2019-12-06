@@ -1,5 +1,4 @@
 import React from 'react';
-import Field from './components/Field/Field'
 import Table from './components/Table/Table'
 
 function App() {
