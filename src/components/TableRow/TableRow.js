@@ -32,7 +32,10 @@ class TableRow extends Component {
 					{/* <Field /> */}
 				</td>
 				<td>
-					<button onClick={this.props.onDelete.bind(this, userInfo)}>Delete</button>
+					<button onClick={() => {
+						this.props.updateData(userInfo)
+						// this.props.onDelete(userInfo)
+					}}>Delete</button>
 				</td>		
 			</tr>
 		)

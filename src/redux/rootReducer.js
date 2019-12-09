@@ -20,8 +20,8 @@ export default function rootReducer(state = initialState, action) {
             }
         case 'FIND':
 
-            const filteredUser = state.userInfo.filter((user, index) => {
-                return user.name.toLowerCase().includes(action.value)
+            const filteredUser = state.userInfo.filter(user => {
+                return user.name.toLowerCase().includes(action.value.toLowerCase())
             })
             
             return {
@@ -40,8 +40,7 @@ export default function rootReducer(state = initialState, action) {
             })
             
             return {
-                userInfo: filteredItems,
-                counter: state.counter
+                userInfo: filteredItems
             }
         case 'ADD_ITEM':
 
