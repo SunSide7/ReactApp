@@ -38,6 +38,9 @@ class TableRow extends Component {
 					{/* <Field /> */}
 				</td>
 				<td>
+					{ this.props.number }
+				</td>
+				<td>
 					<button onClick={this.props.onDelete.bind(this, userInfo)}>Delete</button>
 				</td>
 				<td>

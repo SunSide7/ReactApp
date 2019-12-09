@@ -39,6 +39,7 @@ class Table extends Component {
 									key={index}
 									name={user.name}
 									age={user.age}
+									number={this.props.counter}
 								/>
 							)
 						}) }

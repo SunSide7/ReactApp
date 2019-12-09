@@ -45,6 +45,7 @@ export default function rootReducer(state = initialState, action) {
                 }
             })
 
+            console.log('Action DELETE')
             console.log(userInfo)
             
             return {
