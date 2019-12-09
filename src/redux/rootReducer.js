@@ -43,6 +43,18 @@ export default function rootReducer(state = initialState, action) {
                 userInfo: filteredItems,
                 counter: state.counter
             }
+        case 'ADD_ITEM':
+
+            const refreshedList = [
+                ...state.userInfo,
+                {name: '', age: ''}
+            ]
+
+            return {
+                userInfo: refreshedList
+            }
+
+
         default:
             return state
     }

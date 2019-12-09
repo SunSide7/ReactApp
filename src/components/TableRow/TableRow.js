@@ -11,12 +11,6 @@ class TableRow extends Component {
 			name: this.props.name,
 			age: this.props.age
 		}
-
-		console.log('render TableRow:', userInfo)
-		
-		// console.log(JSON.stringify(userInfo) === JSON.stringify(this.props.userInfo[0]))
-
-		
 		
 		return (
 			<tr>

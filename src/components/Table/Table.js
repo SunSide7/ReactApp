@@ -52,6 +52,8 @@ class Table extends Component {
 					this.props.onFind(event.target.value)
 				}}/>
 
+				<button onClick={this.props.onAddItem}>Add item</button>
+
 			</div>
 		)
 	}
@@ -71,6 +73,7 @@ function mapDispatchToProps(dispatch) {
 		onSub: () => dispatch({ type: 'SUB' }),
 		onFind: value => dispatch({ type: 'FIND', value: value }),
 		onSet: value => dispatch({ type: 'SET_DATA', value: value }),
+		onAddItem: () => dispatch({ type: 'ADD_ITEM' })
 	}
 }
 
