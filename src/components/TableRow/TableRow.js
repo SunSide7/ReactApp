@@ -38,14 +38,8 @@ class TableRow extends Component {
 					{/* <Field /> */}
 				</td>
 				<td>
-					{ this.props.number }
-				</td>
-				<td>
 					<button onClick={this.props.onDelete.bind(this, userInfo)}>Delete</button>
-				</td>
-				<td>
-					<button onClick={this.props.onAdd}>Add</button>
-				</td>
+				</td>		
 			</tr>
 		)
 	}
@@ -60,7 +54,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return {
 		onDelete: tableItem => dispatch({ type: 'DELETE', value: tableItem }),
-		onAdd: () => dispatch({ type: 'ADD' })
 	}
 }
 

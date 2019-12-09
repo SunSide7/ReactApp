@@ -33,23 +33,14 @@ export default function rootReducer(state = initialState, action) {
             }
         case 'DELETE':
 
-            const { userInfo } = state
+            let { userInfo } = state
 
-            state.userInfo.forEach((item, index) => {
-
-                const item_stringified = JSON.stringify(item)
-                const current_stringified = JSON.stringify(action.value)
-
-                if (item_stringified === current_stringified) {
-                    userInfo.splice(index, 1)
-                }
+            const filteredItems = userInfo.filter((item) => {
+                return JSON.stringify(item) !== JSON.stringify(action.value)
             })
-
-            console.log('Action DELETE')
-            console.log(userInfo)
             
             return {
-                userInfo: userInfo,
+                userInfo: filteredItems,
                 counter: state.counter
             }
         default:
