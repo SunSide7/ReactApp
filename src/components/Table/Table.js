@@ -8,13 +8,25 @@ class Table extends Component {
 	state = {
 		savedUserData: null
 	}
+
+
+	
 	
 	componentDidMount() {
 		this.setState({ savedUserData: this.props.userInfo })
 	}
 
+	componentDidUpdate() {
+		console.log('componentDidUpdate:', this.props.userInfo)
+	}
+
+
+
+
 	render() {
 		const { userInfo } = this.props
+
+		console.log('render userInfo:', userInfo)
 		
 		return (
 			<div>
@@ -39,6 +51,8 @@ class Table extends Component {
 					this.props.onFind(event.target.value)
 				}}/>
 
+				{ this.props.counter }
+
 			</div>
 		)
 	}
@@ -57,7 +71,8 @@ function mapDispatchToProps(dispatch) {
 		onAdd: () => dispatch({ type: 'ADD' }),
 		onSub: () => dispatch({ type: 'SUB' }),
 		onFind: value => dispatch({ type: 'FIND', value: value }),
-		onSet: value => dispatch({ type: 'SET_DATA', value: value })
+		onSet: value => dispatch({ type: 'SET_DATA', value: value }),
+		onAddId: () => dispatch({ type: 'ADD_ID' })
 	}
 }
 

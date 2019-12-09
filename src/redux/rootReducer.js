@@ -15,7 +15,8 @@ export default function rootReducer(state = initialState, action) {
         case 'ADD':
             console.log('Action ADD')
             return {
-                counter: ++state.counter
+                counter: ++state.counter,
+                userInfo: state.userInfo
             }
         case 'FIND':
 
@@ -29,6 +30,26 @@ export default function rootReducer(state = initialState, action) {
         case 'SET_DATA':
             return {
                 userInfo: action.value
+            }
+        case 'DELETE':
+
+            const { userInfo } = state
+
+            state.userInfo.forEach((item, index) => {
+
+                const item_stringified = JSON.stringify(item)
+                const current_stringified = JSON.stringify(action.value)
+
+                if (item_stringified === current_stringified) {
+                    userInfo.splice(index, 1)
+                }
+            })
+
+            console.log(userInfo)
+            
+            return {
+                userInfo: userInfo,
+                counter: state.counter
             }
         default:
             return state
