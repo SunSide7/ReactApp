@@ -17,6 +17,19 @@ export default function rootReducer(state = initialState, action) {
             return {
                 counter: ++state.counter
             }
+        case 'FIND':
+
+            const filteredUser = state.userInfo.filter((user, index) => {
+                return user.name.toLowerCase().includes(action.value)
+            })
+            
+            return {
+                userInfo: filteredUser
+            }
+        case 'SET_DATA':
+            return {
+                userInfo: action.value
+            }
         default:
             return state
     }

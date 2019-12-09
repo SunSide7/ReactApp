@@ -5,24 +5,41 @@ import { connect } from 'react-redux'
 
 class Table extends Component {
 
+	state = {
+		savedUserData: null
+	}
+	
+	componentDidMount() {
+		this.setState({ savedUserData: this.props.userInfo })
+	}
+
 	render() {
 		const { userInfo } = this.props
-
-		console.log('Table:', this.props)
+		
 		return (
-			<table>
-    		<tbody>
-				{userInfo.map((user, index) => {
-					return (
-						<TableRow
-							key={index}
-							name={user.name}
-							age={user.age}
-						/>
-					)
-				}) }
-    		</tbody>
-    	</table>
+			<div>
+				<table>
+					<tbody>
+						{
+						userInfo.map((user, index) => {
+							return (
+								<TableRow
+									key={index}
+									name={user.name}
+									age={user.age}
+								/>
+							)
+						}) }
+					</tbody>
+				</table>
+
+				<input type="text" onChange={event => {
+					this.props.onSet(this.state.savedUserData)
+					console.log('event.target.value:', event.target.value)
+					this.props.onFind(event.target.value)
+				}}/>
+
+			</div>
 		)
 	}
 
@@ -38,7 +55,9 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
 	return {
 		onAdd: () => dispatch({ type: 'ADD' }),
-		onSub: () => dispatch({ type: 'SUB' })
+		onSub: () => dispatch({ type: 'SUB' }),
+		onFind: value => dispatch({ type: 'FIND', value: value }),
+		onSet: value => dispatch({ type: 'SET_DATA', value: value })
 	}
 }
 
