@@ -23,13 +23,20 @@ class Table extends Component {
 		this.setState({ savedUserData: this.props.userInfo })
 	}
 
-	componentDidUpdate() {
-		console.log('componentDidUpdate:', this.props.userInfo)
+	static getDerivedStateFromProps(nextProps, previousState) {
+
+		if (!previousState.isSearching) {
+			return {
+				savedUserData: nextProps.userInfo
+			}
+		} else {
+			return previousState
+		}
+
 	}
 	
 	
-	
-	
+
 	
 	// Toggle Methods
 	toggleFindItem(event) {	
@@ -43,8 +50,6 @@ class Table extends Component {
 		
 		this.props.onSet(this.state.savedUserData)
 		this.props.onFind(event.target.value)
-
-		console.log('form findItem:', this.state.savedUserData)
 		
 	}
 	
@@ -53,16 +58,15 @@ class Table extends Component {
 
 		this.props.onAddItem()
 		this.setState({ savedUserData: this.props.userInfo })
+
 	}
 
-	updateData = (itemToDel) => {
+	toggleDelItem = (itemToDel) => {
 		this.setState({ isSearching: false })
 		
 		this.props.onDelete(itemToDel)
 		this.setState({ savedUserData: this.props.userInfo })
 
-		console.log('from TableRow:', itemToDel)
-		console.log('changed from TableRow:', this.state.savedUserData)
 	}
 
 
@@ -71,7 +75,7 @@ class Table extends Component {
 	render() {
 		const { userInfo } = this.props
 
-		console.log('render userInfo:', userInfo)
+		// console.log('render userInfo:', userInfo)
 		
 		return (
 			<div>
@@ -84,7 +88,7 @@ class Table extends Component {
 										key={index}
 										name={user.name}
 										age={user.age}
-										updateData={this.updateData}
+										toggleDelItem={this.toggleDelItem}
 									/>
 								)
 							}) 

@@ -33,8 +33,7 @@ class TableRow extends Component {
 				</td>
 				<td>
 					<button onClick={() => {
-						this.props.updateData(userInfo)
-						// this.props.onDelete(userInfo)
+						this.props.toggleDelItem(userInfo)
 					}}>Delete</button>
 				</td>		
 			</tr>

@@ -38,7 +38,7 @@ export default function rootReducer(state = initialState, action) {
             const filteredItems = userInfo.filter((item) => {
                 return JSON.stringify(item) !== JSON.stringify(action.value)
             })
-            
+                        
             return {
                 userInfo: filteredItems
             }
