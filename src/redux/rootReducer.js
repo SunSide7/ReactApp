@@ -34,10 +34,15 @@ export default function rootReducer(state = initialState, action) {
         case 'DELETE':
 
             let { userInfo } = state
-
-            const filteredItems = userInfo.filter((item) => {
-                return JSON.stringify(item) !== JSON.stringify(action.value)
-            })
+            
+            const idx = userInfo.findIndex(item => JSON.stringify(item) === JSON.stringify(action.value))
+            
+            console.log('from DELETE action:', idx)
+            
+            const filteredItems = [
+                ... userInfo.slice(0, idx),
+                ... userInfo.slice(idx + 1)
+            ]
                         
             return {
                 userInfo: filteredItems
