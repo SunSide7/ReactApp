@@ -5,8 +5,17 @@ import { connect } from 'react-redux'
 
 class TableRow extends Component {
 
-	onChangeValue = (value, item) => {
-		this.props.toggleChangeValue(value, item)
+	onChangeValue = (value, item, startValue) => {
+		
+		console.log('From TableRow:', item, value)
+
+		let objKey = null;
+		
+		for (let key in item) {
+			item[key] === startValue && (objKey = key)
+		}
+
+		this.props.toggleChangeValue(value, item, objKey)
 	}
 	
 	render() {
@@ -20,15 +29,21 @@ class TableRow extends Component {
 			<tr>
 				<td>
 					{/* { this.props.name } */}
-					<Field value={this.props.name} onChangeValue={(value, item) => {
-						this.onChangeValue(value, userInfo)
-					}} />
+					<Field 
+						value={this.props.name} 
+						onChangeValue={(value, item) => {
+							this.onChangeValue(value, userInfo, this.props.name)
+						}}
+					/>
 				</td>
 				<td>
 					{/* { this.props.age } */}
-					<Field value={this.props.age} onChangeValue={(value, item) => {
-						this.onChangeValue(value, userInfo)
-					}} />
+					<Field 
+						value={this.props.age} 
+						onChangeValue={(value, item) => {
+							this.onChangeValue(value, userInfo, this.props.age)
+						}}
+					/>
 				</td>
 				<td>
 					<Field />

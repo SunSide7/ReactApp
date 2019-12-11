@@ -69,8 +69,8 @@ class Table extends Component {
 
 	}
 
-	toggleChangeValue = (value, item) => {
-		this.props.onChange(value, item)
+	toggleChangeValue = (value, item, key) => {
+		this.props.onChange(value, item, key)
 	}
 
 
@@ -126,7 +126,7 @@ function mapDispatchToProps(dispatch) {
 		onSet: value => dispatch({ type: 'SET_DATA', value: value }),
 		onAddItem: () => dispatch({ type: 'ADD_ITEM' }),
 		onDelete: tableItem => dispatch({ type: 'DELETE', value: tableItem }),
-		onChange: (value, item) => dispatch({ type: 'CHANGE', value: value, item: item })
+		onChange: (value, item, key) => dispatch({ type: 'CHANGE', value: value, item: item, key: key })
 	}
 }
 

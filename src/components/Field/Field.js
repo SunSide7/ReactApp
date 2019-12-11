@@ -19,10 +19,12 @@ export default class Field extends Component {
 
     onCloseTyping(event) {
         if (event.key === 'Enter') {
-            this.setState({ typing: false })
-            console.log(this.state.value)
+            this.setState({ 
+                typing: false,
+                value: this.props.value
+            })
 
-            return this.state.value
+            return this.props.value
         }
     }
 

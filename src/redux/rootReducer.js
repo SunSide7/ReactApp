@@ -61,9 +61,26 @@ export default function rootReducer(state = initialState, action) {
                 
                 const idChanged = state.userInfo.findIndex(item => JSON.stringify(item) === JSON.stringify(action.item))
                 
-                console.log('CHANGE action', action.value, action.item, idChanged)
+                // console.log('Item from reducer:', state.userInfo[idChanged])
+                // console.log('CHANGE action', action.value, action.item, action.key, idChanged)
+
+                const itemChanged = {}
+
+                for (let key in state.userInfo[idChanged]) {
+                    key === action.key ? itemChanged[key] = action.value
+                                       : itemChanged[key] = state.userInfo[idChanged][key]
+                    // console.log(itemChanged)
+                }
+
+                const refreshedListChangedValue = [
+                    ... state.userInfo.slice(0, idChanged),
+                    itemChanged,
+                    ... state.userInfo.slice(idChanged + 1)
+                ]
                 
-            return state
+            return {
+                userInfo: refreshedListChangedValue
+            }
 
 
         default:
