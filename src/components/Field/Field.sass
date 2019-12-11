@@ -1,12 +1,21 @@
 .text-field
     position: relative
     width: 350px
+    min-height: 21px
     border: 1px solid #ccc
 
     &__input
         // position: absolute
         top: 0
         width: 100%
+        height: 100%
+
+    &__typing-info
+        position: absolute
+        right: 0
+        border: 1px solid #ccc
+        background-color: lighten(#ccc, 10%)
+        font-size: 10px
 
 .hide
     display: none

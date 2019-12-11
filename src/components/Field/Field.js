@@ -44,10 +44,14 @@ export default class Field extends Component {
                 
                 {
                     this.state.typing && 
-                        <Input 
-                        onToggle={event => {this.onCloseTyping(event)}} 
-                        value={this.state.value}
-                        onChange={this.onChangeValue} />
+                        (<div>
+                            <Input 
+                                onToggle={event => {this.onCloseTyping(event)}} 
+                                value={this.state.value}
+                                onChange={this.onChangeValue} />
+                            <div className="text-field__typing-info">Type "Enter" to save</div>
+                        </div>
+                        )
                 }
             </div>
         )
