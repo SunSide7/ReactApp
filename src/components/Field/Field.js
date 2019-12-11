@@ -27,7 +27,8 @@ export default class Field extends Component {
     }
 
     onChangeValue = value => {
-        this.setState({ value: value })
+        // this.setState({ value: value })
+        this.props.onChangeValue(value)
     }
     
     render() {

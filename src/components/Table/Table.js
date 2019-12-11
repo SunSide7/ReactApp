@@ -69,6 +69,10 @@ class Table extends Component {
 
 	}
 
+	toggleChangeValue = (value, item) => {
+		this.props.onChange(value, item)
+	}
+
 
 
 
@@ -89,6 +93,7 @@ class Table extends Component {
 										name={user.name}
 										age={user.age}
 										toggleDelItem={this.toggleDelItem}
+										toggleChangeValue={this.toggleChangeValue}
 									/>
 								)
 							}) 
@@ -120,7 +125,8 @@ function mapDispatchToProps(dispatch) {
 		onFind: value => dispatch({ type: 'FIND', value: value }),
 		onSet: value => dispatch({ type: 'SET_DATA', value: value }),
 		onAddItem: () => dispatch({ type: 'ADD_ITEM' }),
-		onDelete: tableItem => dispatch({ type: 'DELETE', value: tableItem })
+		onDelete: tableItem => dispatch({ type: 'DELETE', value: tableItem }),
+		onChange: (value, item) => dispatch({ type: 'CHANGE', value: value, item: item })
 	}
 }
 

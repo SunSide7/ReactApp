@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
-// import Field from '../Field/Field'
+import Field from '../Field/Field'
 
 import { connect } from 'react-redux'
 
 class TableRow extends Component {
+
+	onChangeValue = (value, item) => {
+		this.props.toggleChangeValue(value, item)
+	}
 	
 	render() {
 
@@ -15,21 +19,25 @@ class TableRow extends Component {
 		return (
 			<tr>
 				<td>
-					{ this.props.name }
-					{/* <Field value={this.props.name} /> */}
+					{/* { this.props.name } */}
+					<Field value={this.props.name} onChangeValue={(value, item) => {
+						this.onChangeValue(value, userInfo)
+					}} />
 				</td>
 				<td>
-					{ this.props.age }
-					{/* <Field value={this.props.age} /> */}
+					{/* { this.props.age } */}
+					<Field value={this.props.age} onChangeValue={(value, item) => {
+						this.onChangeValue(value, userInfo)
+					}} />
 				</td>
 				<td>
-					{/* <Field /> */}
+					<Field />
 				</td>
 				<td>
-					{/* <Field /> */}
+					<Field />
 				</td>
 				<td>
-					{/* <Field /> */}
+					<Field />
 				</td>
 				<td>
 					<button onClick={() => {

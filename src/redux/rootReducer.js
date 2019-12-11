@@ -43,20 +43,27 @@ export default function rootReducer(state = initialState, action) {
                 ... userInfo.slice(0, idx),
                 ... userInfo.slice(idx + 1)
             ]
-                        
+            
             return {
                 userInfo: filteredItems
             }
         case 'ADD_ITEM':
-
+            
             const refreshedList = [
                 ...state.userInfo,
                 {name: '', age: ''}
             ]
-
+            
             return {
                 userInfo: refreshedList
             }
+            case 'CHANGE':
+                
+                const idChanged = state.userInfo.findIndex(item => JSON.stringify(item) === JSON.stringify(action.item))
+                
+                console.log('CHANGE action', action.value, action.item, idChanged)
+                
+            return state
 
 
         default:
