@@ -21,7 +21,9 @@ export default function rootReducer(state = initialState, action) {
         case 'FIND':
 
             const filteredUser = state.outletInfo.filter(user => {
-                return user.name.toLowerCase().includes(action.value.toLowerCase())
+                return user.name.toLowerCase().includes(action.value.toLowerCase()) 
+                        || user.address.toLowerCase().includes(action.value.toLowerCase())
+                        || user.owner.toLowerCase().includes(action.value.toLowerCase())
             })
             
             return {
