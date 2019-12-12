@@ -97,10 +97,16 @@ class TableRow extends Component {
 
 				<td>
 					{/* { this.props.age } */}
-					<select ref={this.selectRef} defaultValue="default">
+					<select 
+						ref={this.selectRef} 
+						defaultValue={this.props.type}
+						onChange={event => this.onChangeValue(event.target.value, outletInfo, 'type')}
+					>
+
 						{ true && <option disabled hidden value="default"></option> }
 						<option value="option_1">Сеть</option>
 						<option value="option_2">ИП</option>
+
 					</select>
 				</td>
 

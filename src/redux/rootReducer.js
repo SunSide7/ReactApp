@@ -1,9 +1,9 @@
 const initialState = {
     outletInfo: [
-        {name: 'point name 1', address: 'adress 1', owner: 'owner 1', type: '', isActive: true},
-        {name: 'point name 2', address: 'adress 2', owner: 'owner 2', type: '', isActive: true},
-        {name: 'point name 3', address: 'adress 3', owner: 'owner 3', type: '', isActive: true},
-        {name: 'point name 4', address: 'adress 4', owner: 'owner 4', type: '', isActive: true},
+        {name: 'point name 1', address: 'adress 1', owner: 'owner 1', type: 'option_1', isActive: true},
+        {name: 'point name 2', address: 'adress 2', owner: 'owner 2', type: 'option_1', isActive: true},
+        {name: 'point name 3', address: 'adress 3', owner: 'owner 3', type: 'option_1', isActive: true},
+        {name: 'point name 4', address: 'adress 4', owner: 'owner 4', type: 'option_1', isActive: true},
         
     ],
     counter: 0
@@ -51,7 +51,7 @@ export default function rootReducer(state = initialState, action) {
             
             const refreshedList = [
                 ...state.outletInfo,
-                {name: '', address: '', owner: '', type: '', isActive: true}
+                {name: '', address: '', owner: '', type: 'default', isActive: true}
             ]
             
             return {
