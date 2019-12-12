@@ -11,11 +11,13 @@ class TableRow extends Component {
 
 		let objKey = null;
 		
-		for (let key in item) {
-			item[key] === startValue && (objKey = key)
-		}
+		// for (let key in item) {
+		// 	item[key] === startValue && (objKey = key)
+		// }
 
-		this.props.toggleChangeValue(value, item, objKey)
+		// this.props.toggleChangeValue(value, item, objKey)
+
+		this.props.toggleChangeValue(value, item, startValue)
 	}
 	
 	render() {
@@ -32,7 +34,7 @@ class TableRow extends Component {
 					<Field 
 						value={this.props.name} 
 						onChangeValue={(value, item) => {
-							this.onChangeValue(value, userInfo, this.props.name)
+							this.onChangeValue(value, userInfo, 'name')
 						}}
 					/>
 				</td>
@@ -41,7 +43,7 @@ class TableRow extends Component {
 					<Field 
 						value={this.props.age} 
 						onChangeValue={(value, item) => {
-							this.onChangeValue(value, userInfo, this.props.age)
+							this.onChangeValue(value, userInfo, 'age')
 						}}
 					/>
 				</td>
