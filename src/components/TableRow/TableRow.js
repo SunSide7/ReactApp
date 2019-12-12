@@ -21,7 +21,7 @@ class TableRow extends Component {
 			
 			// this.props.toggleChangeValue(value, item, objKey)
 			
-			this.props.toggleChangeValue(value, item, keyName)			
+			this.props.toggleChangeValue(value, item, keyName, this.props.index)			
 			
 		// }
 		

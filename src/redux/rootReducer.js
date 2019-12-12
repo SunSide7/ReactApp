@@ -61,7 +61,8 @@ export default function rootReducer(state = initialState, action) {
             }
             case 'CHANGE':
                 
-                const idChanged = state.outletInfo.findIndex(item => JSON.stringify(item) === JSON.stringify(action.item))
+                // const idChanged = state.outletInfo.findIndex(item => JSON.stringify(item) === JSON.stringify(action.item))
+                const idChanged = action.index
                 
                 // console.log('Item from reducer:', state.outletInfo[idChanged])
                 // console.log('CHANGE action', action.value, action.item, action.key, idChanged)

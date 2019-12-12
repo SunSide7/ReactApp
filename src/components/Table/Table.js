@@ -69,8 +69,10 @@ class Table extends Component {
 
 	}
 
-	toggleChangeValue = (value, item, key) => {
-		this.props.onChange(value, item, key)
+	toggleChangeValue = (value, item, key, index) => {
+		this.props.onChange(value, item, key, index)
+
+		console.log('From Table:', index)
 	}
 
 
@@ -90,6 +92,7 @@ class Table extends Component {
 								return (
 									<TableRow
 										key={index}
+										index={index}
 										name={user.name}
 										address={user.address}
 										owner={user.owner}
@@ -129,7 +132,7 @@ function mapDispatchToProps(dispatch) {
 		onSet: value => dispatch({ type: 'SET_DATA', value: value }),
 		onAddItem: () => dispatch({ type: 'ADD_ITEM' }),
 		onDelete: tableItem => dispatch({ type: 'DELETE', value: tableItem }),
-		onChange: (value, item, key) => dispatch({ type: 'CHANGE', value: value, item: item, key: key })
+		onChange: (value, item, key, index) => dispatch({ type: 'CHANGE', value: value, item: item, key: key, index: index })
 	}
 }
 
