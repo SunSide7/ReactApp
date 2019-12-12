@@ -85,19 +85,19 @@ export default class Field extends Component {
                         )
                 }
 
-                {
+                {/*
                     this.state.fields.type && 
                         <select name="" id="" defaultValue="default">
-                            {/* { true && <option disabled selected hidden value="default"></option> } */}
+                            { true && <option disabled selected hidden value="default"></option> }
                             <option value="option_1">Сеть</option>
                             <option value="option_2">ИП</option>
                         </select>
-                }
+                */}
 
-                {
+                {/*
                     this.state.fields.isActive && 
                         <input checked={false} type="checkbox"/>
-                }
+                */}
             </div>
         )
     }
