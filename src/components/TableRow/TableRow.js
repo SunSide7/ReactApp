@@ -5,6 +5,9 @@ import { connect } from 'react-redux'
 
 class TableRow extends Component {
 
+	selectRef = React.createRef()
+	inputRef = React.createRef()
+
 	onChangeValue = (value, item, keyName) => {
 		
 		console.log('From TableRow:', item, value)
@@ -20,6 +23,16 @@ class TableRow extends Component {
 		this.props.toggleChangeValue(value, item, keyName)
 
 	}
+
+	componentDidMount() {
+
+		console.log("From TableRow:", this.selectRef.current.options[0].value, this.inputRef.current.checked)
+		console.log("From TableRow:", this.selectRef.current)
+		console.log("From TableRow:", this.selectRef.current.options[this.selectRef.current.selectedIndex].value)
+
+		// this.selectRef.current.
+
+	}
 	
 	render() {
 
@@ -30,6 +43,7 @@ class TableRow extends Component {
 			type: this.props.type,
 			isActive: this.props.isActive,
 		}
+		
 		
 		return (
 			<tr>
@@ -65,10 +79,12 @@ class TableRow extends Component {
 					/>
 				</td>
 
+
+
 				<td>
 					{/* { this.props.age } */}
-					<select name="" id="" defaultValue="default">
-						{/* { true && <option disabled selected hidden value="default"></option> } */}
+					<select ref={this.selectRef} defaultValue="default">
+						{ true && <option disabled hidden value="default"></option> }
 						<option value="option_1">Сеть</option>
 						<option value="option_2">ИП</option>
 					</select>
@@ -76,8 +92,15 @@ class TableRow extends Component {
 
 				<td>
 					{/* { this.props.age } */}
-					<input checked={false} type="checkbox"/>
+					<input 	
+						ref={this.inputRef}
+						checked={true}
+						type="checkbox"
+						onChange={event => console.log(event.target.checked)}
+					/>
 				</td>
+
+
 
 				{/* <td>
 					<Field />
