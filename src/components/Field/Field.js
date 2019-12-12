@@ -34,6 +34,7 @@ export default class Field extends Component {
     }
     
     render() {
+        
         return(
             <div className="text-field">
                 
