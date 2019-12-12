@@ -8,7 +8,11 @@ export default class Field extends Component {
 
     state = {
         typing: false,
-        value: this.props.value || 'Type any text here'
+        value: this.props.value || 'Type any text here',
+        fields: {
+            type: false,
+            isActive: false
+        }
     }
     
     onTyping() {
@@ -32,8 +36,34 @@ export default class Field extends Component {
         // this.setState({ value: value })
         this.props.onChangeValue(value)
     }
+
+    componentDidMount() {
+        switch (this.props.keyName) {
+            case 'type':
+                console.log('This is outlet type element')
+                this.setState({ 
+                    fields: {
+                        type:  true 
+                    }
+                })
+                break
+            case 'isActive':
+                console.log('This is outlet active element')
+                this.setState({ 
+                    fields: {
+                        isActive: true 
+                    }
+                })
+                break
+            default:
+                break
+        }
+    }
+    
     
     render() {
+
+        // console.log('From Field:', this.props.keyName)
         
         return(
             <div className="text-field">
@@ -53,6 +83,20 @@ export default class Field extends Component {
                             <div className="text-field__typing-info">Type "Enter" to save</div>
                         </div>
                         )
+                }
+
+                {
+                    this.state.fields.type && 
+                        <select name="" id="" defaultValue="default">
+                            {/* { true && <option disabled selected hidden value="default"></option> } */}
+                            <option value="option_1">Сеть</option>
+                            <option value="option_2">ИП</option>
+                        </select>
+                }
+
+                {
+                    this.state.fields.isActive && 
+                        <input checked={false} type="checkbox"/>
                 }
             </div>
         )

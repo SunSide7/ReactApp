@@ -18,7 +18,7 @@ class TableRow extends Component {
 		// this.props.toggleChangeValue(value, item, objKey)
 
 		this.props.toggleChangeValue(value, item, keyName)
-		
+
 	}
 	
 	render() {
@@ -36,7 +36,8 @@ class TableRow extends Component {
 				<td>
 					{/* { this.props.name } */}
 					<Field 
-						value={this.props.name} 
+						value={this.props.name}
+						keyName={'name'}
 						onChangeValue={(value, item) => {
 							this.onChangeValue(value, outletInfo, 'name')
 						}}
@@ -45,7 +46,8 @@ class TableRow extends Component {
 				<td>
 					{/* { this.props.age } */}
 					<Field 
-						value={this.props.address} 
+						value={this.props.address}
+						keyName={'address'}
 						onChangeValue={(value, item) => {
 							this.onChangeValue(value, outletInfo, 'address')
 						}}
@@ -55,7 +57,8 @@ class TableRow extends Component {
 				<td>
 					{/* { this.props.age } */}
 					<Field 
-						value={this.props.owner} 
+						value={this.props.owner}
+						keyName={'owner'}
 						onChangeValue={(value, item) => {
 							this.onChangeValue(value, outletInfo, 'owner')
 						}}
@@ -64,7 +67,8 @@ class TableRow extends Component {
 				<td>
 					{/* { this.props.age } */}
 					<Field 
-						value={this.props.type} 
+						value={this.props.type}
+						keyName={'type'}
 						onChangeValue={(value, item) => {
 							this.onChangeValue(value, outletInfo, 'type')
 						}}
@@ -73,7 +77,8 @@ class TableRow extends Component {
 				<td>
 					{/* { this.props.age } */}
 					<Field 
-						value={this.props.isActive} 
+						value={this.props.isActive}
+						keyName={'isActive'}
 						onChangeValue={(value, item) => {
 							this.onChangeValue(value, outletInfo, 'isActive')
 						}}
