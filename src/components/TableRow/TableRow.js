@@ -10,29 +10,43 @@ class TableRow extends Component {
 
 	onChangeValue = (value, item, keyName) => {
 		
-		console.log('From TableRow:', item, value)
-
+		
+		// console.log('From TableRow:', this.props.outletInfo)
+		
 		let objKey = null;
 		
 		// for (let key in item) {
-		// 	item[key] === startValue && (objKey = key)
+			// 	item[key] === startValue && (objKey = key)
+			// }
+			
+			// this.props.toggleChangeValue(value, item, objKey)
+			
+			this.props.toggleChangeValue(value, item, keyName)			
+			
 		// }
-
-		// this.props.toggleChangeValue(value, item, objKey)
-
-		this.props.toggleChangeValue(value, item, keyName)
-
+		
+		
 	}
+
+
+
+
 
 	componentDidMount() {
 
-		console.log("From TableRow:", this.selectRef.current.options[0].value, this.inputRef.current.checked)
-		console.log("From TableRow:", this.selectRef.current)
-		console.log("From TableRow:", this.selectRef.current.options[this.selectRef.current.selectedIndex].value)
-
-		// this.selectRef.current.
+		// console.log("From TableRow:", this.selectRef.current.options[0].value, this.inputRef.current.checked)
+		// console.log("From TableRow:", this.selectRef.current)
+		// console.log("From TableRow:", this.selectRef.current.options[this.selectRef.current.selectedIndex].value)
 
 	}
+
+	componentDidUpdate() {
+
+		console.log('From TableRow componentDidUpdate:', this.props.outletInfo)
+		
+	}
+	
+	
 	
 	render() {
 
@@ -94,9 +108,9 @@ class TableRow extends Component {
 					{/* { this.props.age } */}
 					<input 	
 						ref={this.inputRef}
-						checked={true}
+						checked={this.props.isActive}
 						type="checkbox"
-						onChange={event => console.log(event.target.checked)}
+						onChange={event => this.onChangeValue(!outletInfo.isActive, outletInfo, 'isActive')}
 					/>
 				</td>
 
