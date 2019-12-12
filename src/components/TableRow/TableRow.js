@@ -67,32 +67,16 @@ class TableRow extends Component {
 
 				<td>
 					{/* { this.props.age } */}
-					{/* <Field 
-						value={this.props.type}
-						keyName={'type'}
-						onChangeValue={(value, item) => {
-							this.onChangeValue(value, outletInfo, 'type')
-						}}
-					/>
-					 */}
-					 <select name="" id="" defaultValue="default">
+					<select name="" id="" defaultValue="default">
 						{/* { true && <option disabled selected hidden value="default"></option> } */}
 						<option value="option_1">Сеть</option>
 						<option value="option_2">ИП</option>
 					</select>
 				</td>
-				
+
 				<td>
 					{/* { this.props.age } */}
-					{/* <Field 
-						value={this.props.isActive}
-						keyName={'isActive'}
-						onChangeValue={(value, item) => {
-							this.onChangeValue(value, outletInfo, 'isActive')
-						}}
-					/>
-					 */}
-					 <input checked={false} type="checkbox"/>
+					<input checked={false} type="checkbox"/>
 				</td>
 
 				{/* <td>
