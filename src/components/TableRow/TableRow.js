@@ -22,9 +22,12 @@ class TableRow extends Component {
 	
 	render() {
 
-		const userInfo = {
+		const outletInfo = {
 			name: this.props.name,
-			age: this.props.age
+			address: this.props.address,
+			owner: this.props.owner,
+			type: this.props.type,
+			isActive: this.props.isActive,
 		}
 		
 		return (
@@ -34,20 +37,49 @@ class TableRow extends Component {
 					<Field 
 						value={this.props.name} 
 						onChangeValue={(value, item) => {
-							this.onChangeValue(value, userInfo, 'name')
+							this.onChangeValue(value, outletInfo, 'name')
 						}}
 					/>
 				</td>
 				<td>
 					{/* { this.props.age } */}
 					<Field 
-						value={this.props.age} 
+						value={this.props.address} 
 						onChangeValue={(value, item) => {
-							this.onChangeValue(value, userInfo, 'age')
+							this.onChangeValue(value, outletInfo, 'address')
+						}}
+					/>
+				</td>
+				
+				<td>
+					{/* { this.props.age } */}
+					<Field 
+						value={this.props.owner} 
+						onChangeValue={(value, item) => {
+							this.onChangeValue(value, outletInfo, 'owner')
 						}}
 					/>
 				</td>
 				<td>
+					{/* { this.props.age } */}
+					<Field 
+						value={this.props.type} 
+						onChangeValue={(value, item) => {
+							this.onChangeValue(value, outletInfo, 'type')
+						}}
+					/>
+				</td>
+				<td>
+					{/* { this.props.age } */}
+					<Field 
+						value={this.props.isActive} 
+						onChangeValue={(value, item) => {
+							this.onChangeValue(value, outletInfo, 'isActive')
+						}}
+					/>
+				</td>
+
+				{/* <td>
 					<Field />
 				</td>
 				<td>
@@ -55,10 +87,10 @@ class TableRow extends Component {
 				</td>
 				<td>
 					<Field />
-				</td>
+				</td> */}
 				<td>
 					<button onClick={() => {
-						this.props.toggleDelItem(userInfo)
+						this.props.toggleDelItem(outletInfo)
 					}}>Delete</button>
 				</td>		
 			</tr>
@@ -68,7 +100,7 @@ class TableRow extends Component {
 
 function mapStateToProps(state) {
 	return {
-		userInfo: state.userInfo
+		outletInfo: state.outletInfo
 	}
 }
 

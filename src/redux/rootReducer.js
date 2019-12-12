@@ -1,9 +1,9 @@
 const initialState = {
-    userInfo: [
-        {name: 'Alex', age: 35},
-        {name: 'Arnold', age: 45},
-        {name: 'Denis', age: 40},
-        {name: 'Frank', age: 55},
+    outletInfo: [
+        {name: 'point name 1', address: 'adress 1', owner: 'owner 1', type: '', isActive: true},
+        {name: 'point name 2', address: 'adress 2', owner: 'owner 2', type: '', isActive: true},
+        {name: 'point name 3', address: 'adress 3', owner: 'owner 3', type: '', isActive: true},
+        {name: 'point name 4', address: 'adress 4', owner: 'owner 4', type: '', isActive: true},
         
     ],
     counter: 0
@@ -16,70 +16,70 @@ export default function rootReducer(state = initialState, action) {
             console.log('Action ADD')
             return {
                 counter: ++state.counter,
-                userInfo: state.userInfo
+                outletInfo: state.outletInfo
             }
         case 'FIND':
 
-            const filteredUser = state.userInfo.filter(user => {
+            const filteredUser = state.outletInfo.filter(user => {
                 return user.name.toLowerCase().includes(action.value.toLowerCase())
             })
             
             return {
-                userInfo: filteredUser
+                outletInfo: filteredUser
             }
         case 'SET_DATA':
             return {
-                userInfo: action.value
+                outletInfo: action.value
             }
         case 'DELETE':
 
-            let { userInfo } = state
+            let { outletInfo } = state
             
-            const idx = userInfo.findIndex(item => JSON.stringify(item) === JSON.stringify(action.value))
+            const idx = outletInfo.findIndex(item => JSON.stringify(item) === JSON.stringify(action.value))
             
             console.log('from DELETE action:', idx)
             
             const filteredItems = [
-                ... userInfo.slice(0, idx),
-                ... userInfo.slice(idx + 1)
+                ... outletInfo.slice(0, idx),
+                ... outletInfo.slice(idx + 1)
             ]
             
             return {
-                userInfo: filteredItems
+                outletInfo: filteredItems
             }
         case 'ADD_ITEM':
             
             const refreshedList = [
-                ...state.userInfo,
-                {name: '', age: ''}
+                ...state.outletInfo,
+                {name: '', address: '', owner: '', type: '', isActive: true}
             ]
             
             return {
-                userInfo: refreshedList
+                outletInfo: refreshedList
             }
             case 'CHANGE':
                 
-                const idChanged = state.userInfo.findIndex(item => JSON.stringify(item) === JSON.stringify(action.item))
+                const idChanged = state.outletInfo.findIndex(item => JSON.stringify(item) === JSON.stringify(action.item))
                 
-                // console.log('Item from reducer:', state.userInfo[idChanged])
+                // console.log('Item from reducer:', state.outletInfo[idChanged])
                 // console.log('CHANGE action', action.value, action.item, action.key, idChanged)
 
                 const itemChanged = {}
 
-                for (let key in state.userInfo[idChanged]) {
+                for (let key in state.outletInfo[idChanged]) {
                     key === action.key ? itemChanged[key] = action.value
-                                       : itemChanged[key] = state.userInfo[idChanged][key]
+                                       : itemChanged[key] = state.outletInfo[idChanged][key]
                     // console.log(itemChanged)
                 }
 
                 const refreshedListChangedValue = [
-                    ... state.userInfo.slice(0, idChanged),
+                    ... state.outletInfo.slice(0, idChanged),
                     itemChanged,
-                    ... state.userInfo.slice(idChanged + 1)
+                    ... state.outletInfo.slice(idChanged + 1)
                 ]
                 
             return {
-                userInfo: refreshedListChangedValue
+                outletInfo: refreshedListChangedValue
             }
 
 

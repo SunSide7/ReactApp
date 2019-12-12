@@ -20,14 +20,14 @@ class Table extends Component {
 	
 	// Component Lifecycle Methods
 	componentDidMount() {
-		this.setState({ savedUserData: this.props.userInfo })
+		this.setState({ savedUserData: this.props.outletInfo })
 	}
 
 	static getDerivedStateFromProps(nextProps, previousState) {
 
 		if (!previousState.isSearching) {
 			return {
-				savedUserData: nextProps.userInfo
+				savedUserData: nextProps.outletInfo
 			}
 		} else {
 			return previousState
@@ -43,7 +43,7 @@ class Table extends Component {
 		
 		if (!this.state.isSearching) {
 			this.setState({ 
-				savedUserData: this.props.userInfo,
+				savedUserData: this.props.outletInfo,
 				isSearching: true 
 			})
 		}
@@ -57,7 +57,7 @@ class Table extends Component {
 		this.setState({ isSearching: false })
 
 		this.props.onAddItem()
-		this.setState({ savedUserData: this.props.userInfo })
+		this.setState({ savedUserData: this.props.outletInfo })
 
 	}
 
@@ -65,7 +65,7 @@ class Table extends Component {
 		this.setState({ isSearching: false })
 		
 		this.props.onDelete(itemToDel)
-		this.setState({ savedUserData: this.props.userInfo })
+		this.setState({ savedUserData: this.props.outletInfo })
 
 	}
 
@@ -77,21 +77,24 @@ class Table extends Component {
 
 
 	render() {
-		const { userInfo } = this.props
+		const { outletInfo } = this.props
 
-		// console.log('render userInfo:', userInfo)
+		// console.log('render outletInfo:', outletInfo)
 		
 		return (
 			<div>
 				<table>
 					<tbody>
 						{
-							userInfo.map((user, index) => {
+							outletInfo.map((user, index) => {
 								return (
 									<TableRow
 										key={index}
 										name={user.name}
-										age={user.age}
+										address={user.address}
+										owner={user.owner}
+										type={user.type}
+										isActive={user.isActive}
 										toggleDelItem={this.toggleDelItem}
 										toggleChangeValue={this.toggleChangeValue}
 									/>
@@ -113,7 +116,7 @@ class Table extends Component {
 
 function mapStateToProps(state) {
 	return {
-		userInfo: state.userInfo,
+		outletInfo: state.outletInfo,
 		counter: state.counter
 	}
 }
