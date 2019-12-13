@@ -9,42 +9,13 @@ class TableRow extends Component {
 	inputRef = React.createRef()
 
 	onChangeValue = (value, item, keyName) => {
-		
-		
-		// console.log('From TableRow:', this.props.outletInfo)
-		
-		let objKey = null;
-		
-		// for (let key in item) {
-			// 	item[key] === startValue && (objKey = key)
-			// }
 			
-			// this.props.toggleChangeValue(value, item, objKey)
-			
-			this.props.toggleChangeValue(value, item, keyName, this.props.index)			
-			
-		// }
-		
+		this.props.toggleChangeValue(value, item, keyName, this.props.index)			
+				
 		
 	}
 
 
-
-
-
-	componentDidMount() {
-
-		// console.log("From TableRow:", this.selectRef.current.options[0].value, this.inputRef.current.checked)
-		// console.log("From TableRow:", this.selectRef.current)
-		// console.log("From TableRow:", this.selectRef.current.options[this.selectRef.current.selectedIndex].value)
-
-	}
-
-	componentDidUpdate() {
-
-		console.log('From TableRow componentDidUpdate:', this.props.outletInfo)
-		
-	}
 	
 	
 	
@@ -62,7 +33,6 @@ class TableRow extends Component {
 		return (
 			<tr>
 				<td>
-					{/* { this.props.name } */}
 					<Field 
 						value={this.props.name}
 						keyName={'name'}
@@ -72,7 +42,6 @@ class TableRow extends Component {
 					/>
 				</td>
 				<td>
-					{/* { this.props.age } */}
 					<Field 
 						value={this.props.address}
 						keyName={'address'}
@@ -83,7 +52,6 @@ class TableRow extends Component {
 				</td>
 				
 				<td>
-					{/* { this.props.age } */}
 					<Field 
 						value={this.props.owner}
 						keyName={'owner'}
@@ -96,7 +64,6 @@ class TableRow extends Component {
 
 
 				<td>
-					{/* { this.props.age } */}
 					<select 
 						ref={this.selectRef} 
 						defaultValue={this.props.type}
@@ -111,7 +78,6 @@ class TableRow extends Component {
 				</td>
 
 				<td>
-					{/* { this.props.age } */}
 					<input 	
 						ref={this.inputRef}
 						checked={this.props.isActive}
@@ -122,15 +88,6 @@ class TableRow extends Component {
 
 
 
-				{/* <td>
-					<Field />
-				</td>
-				<td>
-					<Field />
-				</td>
-				<td>
-					<Field />
-				</td> */}
 				<td>
 					<button onClick={() => {
 						this.props.toggleDelItem(outletInfo)

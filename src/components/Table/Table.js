@@ -36,6 +36,12 @@ class Table extends Component {
 		}
 
 	}
+
+	componentDidUpdate() {
+
+		console.log('From Table componentDidUpdate:', this.props.outletInfo)
+		
+	}
 	
 	
 
@@ -74,7 +80,7 @@ class Table extends Component {
 	toggleChangeValue = (value, item, key, index) => {
 		this.props.onChange(value, item, key, index)
 
-		console.log('From Table:', index)
+		console.log('From Table Changed Row Index:', index)
 	}
 
 

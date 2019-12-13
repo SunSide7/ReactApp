@@ -33,14 +33,13 @@ export default class Field extends Component {
     }
 
     onChangeValue = value => {
-        // this.setState({ value: value })
         this.props.onChangeValue(value)
+        
     }
 
     componentDidMount() {
         switch (this.props.keyName) {
             case 'type':
-                console.log('This is outlet type element')
                 this.setState({ 
                     fields: {
                         type:  true 
@@ -48,7 +47,6 @@ export default class Field extends Component {
                 })
                 break
             case 'isActive':
-                console.log('This is outlet active element')
                 this.setState({ 
                     fields: {
                         isActive: true 
@@ -62,8 +60,6 @@ export default class Field extends Component {
     
     
     render() {
-
-        // console.log('From Field:', this.props.keyName)
         
         return(
             <div className="text-field">
