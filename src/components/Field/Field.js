@@ -8,7 +8,7 @@ export default class Field extends Component {
 
     state = {
         typing: false,
-        value: this.props.value || 'Type any text here',
+        value: this.props.value || '',
         fields: {
             type: false,
             isActive: false

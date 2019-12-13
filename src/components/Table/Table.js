@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import TableRow from '../TableRow/TableRow'
+import './Table.sass'
 
 import { connect } from 'react-redux'
 
@@ -7,7 +8,8 @@ class Table extends Component {
 
 	state = {
 		savedUserData: null,
-		isSearching: false
+		isSearching: false,
+		headTitleKeys: null
 	}
 
 	constructor() {
@@ -80,17 +82,34 @@ class Table extends Component {
 
 	render() {
 		const { outletInfo } = this.props
+		
+		const keys = []
+
+		for (let key in outletInfo[0]) {
+			keys.push(key)
+		}
 
 		// console.log('render outletInfo:', outletInfo)
 		
 		return (
 			<div>
-				<table>
+				<table className="table table-striped">
+					<thead className="thead">
+						<tr>
+							{
+								keys.map((key, index) => {
+									return (
+										<td key={index}>{ key }</td>
+									)
+								})
+							}
+						</tr>
+					</thead>
 					<tbody>
 						{
 							outletInfo.map((user, index) => {
 								return (
-									<TableRow
+									<TableRow 
 										key={index}
 										index={index}
 										name={user.name}
@@ -107,7 +126,7 @@ class Table extends Component {
 					</tbody>
 				</table>
 
-				<input type="text" onChange={event => this.toggleFindItem(event)}/>
+				<input type="text" placeholder="Find" onChange={event => this.toggleFindItem(event)}/>
 
 				<button onClick={this.toggleAddItem}>Add item</button>
 
