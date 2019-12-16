@@ -18,6 +18,7 @@ export default class Field extends Component {
 
     // Component Lifecycle Methods
     componentWillUnmount() {
+        document.removeEventListener('click', this.handleClickOutside, false)
     }
     
     shouldComponentUpdate() {
@@ -37,7 +38,8 @@ export default class Field extends Component {
     
         if ((!domNode || !domNode.contains(event.target))) {
             this.setState({
-                typing : false
+                typing : false,
+                value: this.props.value
             });
         }
     }
