@@ -40,9 +40,6 @@ class Table extends Component {
 	componentDidUpdate() {
 
 		console.log('From Table componentDidUpdate:', this.props.outletInfo)
-		console.log('isSearching:', this.state.isSearching)
-
-		// !this.state.isSearching && this.setState({ savedUserData: this.props.outletInfo })
 		
 	}
 	
@@ -53,11 +50,7 @@ class Table extends Component {
 	toggleFindItem(event) {
 
 		if (!event.target.value) {
-			
-			console.log('Search Input Is Empty!')
-			console.log(this.props.outletInfo)
-			console.log(this.state.savedUserData)
-			
+						
 			this.setState({
 				isSearching: false
 			})
