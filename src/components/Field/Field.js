@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ReactDOM from 'react-dom'
 import Input from './Input'
 import './Field.sass'
 
@@ -12,6 +13,32 @@ export default class Field extends Component {
         fields: {
             type: false,
             isActive: false
+        }
+    }
+
+    // Component Lifecycle Methods
+    componentWillUnmount() {
+    }
+    
+    shouldComponentUpdate() {
+        document.removeEventListener('click', this.handleClickOutside, false)
+        
+        return true
+    }
+    
+    componentWillUpdate() {
+        document.addEventListener('click', this.handleClickOutside, false);
+    }
+
+
+    // Toggle
+    handleClickOutside = event => {
+        const domNode = ReactDOM.findDOMNode(this);
+    
+        if ((!domNode || !domNode.contains(event.target))) {
+            this.setState({
+                typing : false
+            });
         }
     }
     
@@ -59,8 +86,7 @@ export default class Field extends Component {
     }
     
     
-    render() {
-        
+    render() {        
         return(
             <div className="text-field">
                 
