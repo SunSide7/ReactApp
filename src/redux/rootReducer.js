@@ -42,8 +42,8 @@ export default function rootReducer(state = initialState, action) {
             console.log('from DELETE action:', idx)
             
             const filteredItems = [
-                ... outletInfo.slice(0, idx),
-                ... outletInfo.slice(idx + 1)
+                ...outletInfo.slice(0, idx),
+                ...outletInfo.slice(idx + 1)
             ]
             
             return {
@@ -76,9 +76,9 @@ export default function rootReducer(state = initialState, action) {
                 }
 
                 const refreshedListChangedValue = [
-                    ... state.outletInfo.slice(0, idChanged),
+                    ...state.outletInfo.slice(0, idChanged),
                     itemChanged,
-                    ... state.outletInfo.slice(idChanged + 1)
+                    ...state.outletInfo.slice(idChanged + 1)
                 ]
                 
             return {
