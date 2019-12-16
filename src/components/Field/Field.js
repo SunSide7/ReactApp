@@ -26,12 +26,12 @@ export default class Field extends Component {
         return true
     }
     
-    componentWillUpdate() {
+    componentDidUpdate() {
         document.addEventListener('click', this.handleClickOutside, false);
     }
 
 
-    // Toggle
+    
     handleClickOutside = event => {
         const domNode = ReactDOM.findDOMNode(this);
     
