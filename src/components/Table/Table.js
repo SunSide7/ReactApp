@@ -110,7 +110,7 @@ class Table extends Component {
 		
 		return (
 			<div>
-				<table className="table table-striped">
+				<table className="table table-striped table-hover">
 					<thead className="thead">
 						<tr>
 							{
